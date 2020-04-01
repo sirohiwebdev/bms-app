@@ -45,7 +45,7 @@
 				</div>
 
 				<div class="form-group text-right">
-					<button type="submit" class="btn btn-success">Edit</button>
+					<button type="submit" class="btn btn-success">Save</button>
 
 					<a href="<?php echo base_url().'post/'.$posts[0]['id']; ?>"
 						><button type="button" class="btn btn-light">Cancel</button></a
