@@ -38,8 +38,9 @@ class Post extends CI_Controller {
 			$post_title = $this->input->post('title');
 			$post_short_desc = $this->input->post('short_desc');
 			$post_long_desc = $this->input->post('long_desc');
+			$post_dop = $this->input->post('dop');
 			if($post_title && $post_short_desc && $post_long_desc){
-				$create = $this->posts->create(array('title'=> $post_title, 'short_desc'=> $post_short_desc, 'long_desc'=> $post_long_desc));
+				$create = $this->posts->create(array('title'=> $post_title, 'short_desc'=> $post_short_desc, 'long_desc'=> $post_long_desc, 'dop'=>$post_dop));
 				if($create){
 					echo json_encode(array('status'=>"SUCCESS", "msg"=>"Post created successfully."));
 				}else{
@@ -62,10 +63,11 @@ class Post extends CI_Controller {
 		$post_title = $this->input->post('title');
 		$post_short_desc = $this->input->post('short_desc');
 		$post_long_desc = $this->input->post('long_desc');
+		$post_dop = $this->input->post('dop');
 
 		if($id && $post_title && $post_long_desc && $post_short_desc){
 
-				$update = $this->posts->update(array('title'=> $post_title, 'short_desc'=> $post_short_desc, 'long_desc'=> $post_long_desc), $id);
+				$update = $this->posts->update(array('title'=> $post_title, 'short_desc'=> $post_short_desc, 'long_desc'=> $post_long_desc, 'dop'=> $post_dop), $id);
 				if($update){
 					echo json_encode(array('status'=>"SUCCESS", "msg"=>"Post updated successfully."));
 				}else{

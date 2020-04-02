@@ -35,7 +35,7 @@
                     ?>
                     </div>
                     <div class="text-muted">
-                        Created at : <?php echo Date('d, M, Y h:i:s A', strtotime($post['created_at'])) ?>
+                        Date of Publish: <?php echo $post['dop']; ?>
                     </div>
                     <div class="mt-2">
 

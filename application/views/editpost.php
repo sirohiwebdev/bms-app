@@ -44,6 +44,18 @@
 					/>
 				</div>
 
+				<div class="form-group">
+					<label for="dop">Date of Publish</label>
+					<input
+						type="text"
+						placeholder="02/13/2020"
+						class="form-control"
+						id="datepicker"
+						value="<?php echo $posts[0]['dop'] ?> "
+						required
+					/>
+				</div>
+
 				<div class="form-group text-right">
 					<button type="submit" class="btn btn-success">Save</button>
 
@@ -57,6 +69,12 @@
 </div>
 
 <script>
+	$(function() {
+		$("#datepicker").datepicker();
+	});
+</script>
+
+<script>
 	let error = document.getElementById("error");
 	let success = document.getElementById("success");
 	function submitForm() {
@@ -68,10 +86,12 @@
 		let title = document.getElementById("title").value;
 		let shortDesc = document.getElementById("shortdesc").value;
 		let longDesc = document.getElementById("body").value;
+		let dop = document.getElementById("datepicker").value;
 
 		formdata.append("title", title);
 		formdata.append("short_desc", shortDesc);
 		formdata.append("long_desc", longDesc);
+		formdata.append("dop", dop);
 
 		fetch("<?php echo base_url(); ?>post/edit/<?php echo $posts[0]['id'] ?>", {
 			method: "POST",
